@@ -16,7 +16,7 @@ like create rooms and interact with the hub.
 
 |Command|Description|
 |---|---|
-|createroom <room name>|creates a room|
+|createroom \<room name\>|creates a room|
 
 Once you get the program running, all you need to do is get your app to interact with the hub,
 then make your apps that you want to communicate with each other with the room name you chose.
