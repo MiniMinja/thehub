@@ -53,9 +53,11 @@ int main(){
 	char data[REQUEST_SIZE+1];
 	rooms r;
 	
+	string lastcommand = "<No commands yet>";
 	int running = 1;
 	while(running){
 		clear();
+		printw("(lastcommand: %s)\n", lastcommand.c_str());
 		printw("file available on %s\n", fifoname);
 		printw("===========================\n%s\n", r.to_string().c_str());
 		printw("press q to exit");
@@ -75,6 +77,7 @@ int main(){
 					string roomname = command.substr(11);
 					r.makeRoom(roomname);
 				}
+				lastcommand = command;
 			}
 			std::this_thread::sleep_for(500ms);
 		}
@@ -86,3 +89,10 @@ int main(){
 	return 0;
 }
 
+// the path for all hub pips are set
+string getHubPath(const string& name){
+	string fpath = getenv("HOME");
+	fpath += "/hub/";
+	fpath += name;
+	return fpath;
+}
